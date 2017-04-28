@@ -1,5 +1,5 @@
 package com.sran.exercise.job.offer;
 
-public class No02SingletonExtend {
+public class No02SingletonExtention {
 
 }
