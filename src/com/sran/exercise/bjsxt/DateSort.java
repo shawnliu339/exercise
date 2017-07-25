@@ -47,6 +47,8 @@ public class DateSort {
 	 * 每次最大的数字会沉到最底部，即每次循环都会排序完毕一个数字，所以外侧循环次数每次都需要减少一次
 	 * j用于内侧循环，控制每次的两个数字的比较，由于每次循环都会完成一个数字的排序，所以循环次数为i减1。
 	 * 
+	 * 所谓冒泡法，每次排序，都要把最小的排在第一个
+	 * 
 	 */
 	public static void bubbleSort(Date[] dates) {
 		for (int i = dates.length; i > 0; i--) {

@@ -1,6 +1,13 @@
-package com.sran.exercise.job.others;
+package com.sran.exercise.sort;
 
-public class Others02 {
+public class QuickSort {
+
+	public static void main(String args[]) {
+		int[] array = { 5, 3, 8, 6, 4 };
+		QuickSort1 qs = new QuickSort1();
+		qs.sort(array);
+
+	}
 
 }
 
