@@ -1,10 +1,12 @@
 package com.sran.exercise.job.offer;
 
+import java.util.Arrays;
+
 public class No12Print1ToMaxOfDigits {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		print1ToMax(2);
+		print1ToMaxByByte(3);
 
 	}
 	
@@ -17,6 +19,18 @@ public class No12Print1ToMaxOfDigits {
 			StringBuffer num = new StringBuffer();
 			num.append(i);
 			print1ToMaxRecursively(num, n, 0);
+		}
+	}
+	
+	static public void print1ToMaxByByte (int n) {
+		if (n<=0) {
+			return;
+		}
+		
+		for(byte i=0; i<10; i++) {
+			byte[] nums = new byte[n];
+			nums[0] = i;
+			print1ToMaxRecursively(nums, 0);
 		}
 	}
 	
@@ -33,6 +47,18 @@ public class No12Print1ToMaxOfDigits {
 		}
 	}
 	
+	static private void print1ToMaxRecursively (byte[] nums, int index) {
+		if (index == nums.length-1) {
+			printNumber(nums);
+			return;
+		}
+		
+		for (byte i=0; i<10; i++) {
+			nums[index + 1] = i;
+			print1ToMaxRecursively(nums, index+1);
+		}
+	}
+	
 	static private void printNumber(StringBuffer num) {
 		boolean isFirstZero = true;
 		for (int i=0; i<num.length(); i++) {
@@ -42,6 +68,21 @@ public class No12Print1ToMaxOfDigits {
 			
 			if (!isFirstZero) {
 				System.out.print(num.charAt(i));
+			}
+		}
+		
+		System.out.println();
+	}
+	
+	static private void printNumber(byte[] nums) {
+		boolean isFirstZero = true;
+		for (byte num : nums) {
+			if (isFirstZero && num!=0) {
+				isFirstZero = false;
+			}
+			
+			if (!isFirstZero) {
+				System.out.print(num);
 			}
 		}
 		
