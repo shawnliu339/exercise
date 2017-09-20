@@ -6,20 +6,74 @@ public class No13DeleteNodeInList {
 		// TODO Auto-generated method stub
 		ListNode1 head = new ListNode1(1);
 		createList(head);
-		ListNode1 node = getNode(head, 3);
-		System.out.println(node.value);
+		printList(head);
+		ListNode1 deleteNode = getNode(head, 9);
+		deleteNode(head, deleteNode);
+		printList(head);
 	}
 
 	public static void deleteNode(ListNode1 head, ListNode1 deleteNode) {
-		deleteNode.value = deleteNode.next.value;
-		deleteNode.next = deleteNode.next.next;
+
+		// 非尾情况
+		if (deleteNode.next != null) {
+
+			// 多个节点，删除头结点
+			if (head == deleteNode) {
+				head.value = deleteNode.next.value;
+				head.next = deleteNode.next.next;
+				return;
+			}
+
+			// 多个节点，删除非尾节点
+			deleteNode.value = deleteNode.next.value;
+			deleteNode.next = deleteNode.next.next;
+
+			// 删除只有一个节点的情况
+		} else if (deleteNode == head) {
+			head = null;
+
+		} else {
+			// 多个节点，删除尾节点
+			ListNode1 node = head;
+			while (node.next != deleteNode) {
+				node = node.next;
+			}
+			
+			node.next = null;
+		}
+
 	}
 
 	private static void createList(ListNode1 head) {
+
 		for (int i = 2; i <= 10; i++) {
 			ListNode1 node = new ListNode1(i);
-			head.next = node;
+			append(head, node);
 		}
+	}
+
+	private static void append(ListNode1 head, ListNode1 addNode) {
+		if (head == null) {
+			head = addNode;
+		} else {
+
+			ListNode1 node = head;
+			while (node.next != null) {
+				node = node.next;
+			}
+			node.next = addNode;
+		}
+
+	}
+
+	private static void printList(ListNode1 head) {
+		ListNode1 node = head;
+		System.out.print(node.value + " ");
+		while (node.next != null) {
+			node = node.next;
+			System.out.print(node.value + " ");
+		}
+		System.out.println();
 	}
 
 	private static ListNode1 getNode(ListNode1 head, int index) {
@@ -29,7 +83,7 @@ public class No13DeleteNodeInList {
 		ListNode1 node = head;
 		int start = 0;
 		while (node.next != null) {
-			if(start == index) {
+			if (start == index) {
 				return node;
 			}
 			node = node.next;
