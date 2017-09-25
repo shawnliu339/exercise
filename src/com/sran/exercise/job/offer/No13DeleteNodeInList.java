@@ -108,4 +108,11 @@ class ListNode1 {
 		this.value = value;
 		this.next = next;
 	}
+
+	@Override
+	public String toString() {
+		return "ListNode1 [value=" + value + ", next=" + next + "]";
+	}
+	
+	
 }

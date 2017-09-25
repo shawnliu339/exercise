@@ -6,7 +6,7 @@ public class No14ReorderArray {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] nums = {2,4,8,10,1,3,14,15};
+		int[] nums = {2,4,8,10,1,3,15};
 		reorder(nums);
 		System.out.println(Arrays.toString(nums));
 
