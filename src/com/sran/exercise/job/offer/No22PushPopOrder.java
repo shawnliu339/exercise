@@ -12,10 +12,13 @@ public class No22PushPopOrder {
 
 	}
 
-	public static boolean isPopOrder(int[] pushOrder, int[] popOrder) {
+	//由内侧的循环向外侧写。注意循环的边界条件。注意每个循环的入口部分进行特殊值检查。
+	//出现的困惑：不知道弹出和压入操作循环，哪个写外侧，哪个写内侧。
+	//一定要先进行压入操作才可进行弹出操作，所以，压入循环写在内侧。
+	public static boolean isPopOrder(int[] pushA, int[] popA) {
 		boolean possible = false;
 		
-		if (pushOrder == null || popOrder==null || pushOrder.length == 0 || popOrder.length == 0) {
+		if (pushA == null || popA==null || pushA.length == 0 || popA.length == 0) {
 			return possible;
 		}
 
@@ -23,18 +26,18 @@ public class No22PushPopOrder {
 		int nextPopIndex = 0;
 		Stack<Integer> stack = new Stack<Integer>();
 
-		while (nextPopIndex < popOrder.length) {
+		while (nextPopIndex < popA.length) {
 
-			while (stack.isEmpty() || stack.peek() != popOrder[nextPopIndex]) {
-				if (nextPushIndex == pushOrder.length) {
+			while (stack.isEmpty() || stack.peek() != popA[nextPopIndex]) {
+				if (nextPushIndex == pushA.length) {
 					break;
 				}
 
-				stack.push(pushOrder[nextPushIndex]);
+				stack.push(pushA[nextPushIndex]);
 				nextPushIndex++;
 			}
 			
-			if (stack.peek() != popOrder[nextPopIndex]) {
+			if (stack.peek() != popA[nextPopIndex]) {
 				break;
 			}
 
@@ -42,7 +45,7 @@ public class No22PushPopOrder {
 			nextPopIndex++;
 		}
 		
-		if (stack.isEmpty() && nextPopIndex == popOrder.length) {
+		if (stack.isEmpty() && nextPopIndex == popA.length) {
 			possible = true;
 		}
 
