@@ -4,15 +4,13 @@ public class ThreadTest {
 
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
-		Thread thread1 = new Thread(new MyThread("t1"));
-		Thread thread2 = new Thread(new MyThread("t2"));
+
+		MyThread t1 = new MyThread();
+		Thread thread1 = new Thread(t1);
 		
 		thread1.start();
-		for(int i=0; i<100; i++) {
-			System.out.println("----------main===========" + i);
-		}
-		thread1.join();
-		thread2.start();
+		Thread.sleep(2000);
+		t1.run1();
 	}
 	
 	
@@ -21,17 +19,31 @@ public class ThreadTest {
 
 class MyThread implements Runnable {
 	
-	private String name;
-	
-	public MyThread(String name) {
-		this.name = name;
-	}
+	int b = 100;
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-		for(int i=0; i<100; i++) {
-			System.out.println(this.name + "----------" + i);
+		try {
+			this.run1();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public synchronized void printB() {
+		System.out.println(this.b);
+	}
+	
+	public void run1() throws InterruptedException {
+		System.out.println("run1-----1");
+		
+		
+		synchronized (this) {
+			System.out.println("run1-----02");
+
+			Thread.sleep(5000);
+			System.out.println("run1-----2");
 		}
 	}
 	

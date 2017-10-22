@@ -36,6 +36,8 @@ public class Fibonacci {
 			return 0;
 		}
 		
+		invalidInput = false;
+		
 		if(n==0) {
 			return 0;
 		}
