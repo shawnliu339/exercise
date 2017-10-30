@@ -8,7 +8,7 @@ public class No28StringPermutation {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		permutation("aa");
+		permutation("aaab");
 	}
 
 	public static void permutation(String str) {
@@ -51,7 +51,7 @@ public class No28StringPermutation {
 
 	public static boolean isSwap(char[] charList, int startChar, int currentChar) {
 		for (int i = startChar; i < currentChar; i++) {
-			if (charList[currentChar] == charList[startChar]) {
+			if (charList[currentChar] == charList[i]) {
 				return false;
 			}
 		}

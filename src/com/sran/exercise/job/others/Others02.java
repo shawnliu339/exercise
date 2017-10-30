@@ -148,5 +148,22 @@ class QuickSort2 {
 			return;
 		quickSort(arr, 0, arr.length - 1);
 	}
+	
+	public static void insertSort(int[] nums) {
+		if(nums.length==0) {
+			return;
+		}
+		
+		for (int i=1; i<nums.length; i++) {
+			int target = nums[i];
+			int j = i;
+			while (j>0 && target<nums[j-1]) {
+				j--;
+			}
+			
+		}
+		
+		
+	}
 
 }
