@@ -10,18 +10,19 @@ public class No39TreeDepth {
 		System.out.println(treeDepth(root));
 	}
 
-	public static int treePathByRecursion(TreeNode root) {
+	public static int treeDepthByRecursion(TreeNode root) {
 
 		if (root == null) {
 			return 0;
 		}
 		TreeNode node = root;
-		int depthOfLeft = treePathByRecursion(node.left);
+		int depthOfLeft = treeDepthByRecursion(node.left);
 
-		int depthOfRight = treePathByRecursion(node.right);
+		int depthOfRight = treeDepthByRecursion(node.right);
 
 		return depthOfLeft > depthOfRight ? depthOfLeft + 1 : depthOfRight + 1;
 	}
+
 
 	public static TreeNode createTree() {
 		TreeNode root = new TreeNode(1);
