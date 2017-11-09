@@ -24,9 +24,13 @@ public class No00QuickSort {
 			return;
 		}
 		
-		int pivotKey = partition(nums, start, end);
-		sort(nums, start, pivotKey-1);
-		sort(nums, pivotKey+1, end);
+		int index = partition(nums, start, end);
+		if (index>start) {
+			sort(nums, start, index-1);
+		}
+		if (index<end) {
+			sort(nums, index+1, end);
+		}
 	}
 
 	public static int partition(int[] nums, int start, int end) throws Exception {
