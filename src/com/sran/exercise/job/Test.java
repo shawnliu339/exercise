@@ -4,26 +4,24 @@ import java.util.Arrays;
 
 public class Test {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		new A();
-		B.printName();
-	}
-
-}
-
-class A {
-	{
-		System.out.println("I am A!");
-	}
-}
-
-class B {
-	{
-		System.out.println("I am B!");
-	}
+	Test1 test1 = new Test1("test, but out of constructor");
 	
-	static public void printName() {
-		System.out.println("print name B");
+	static {
+		System.out.println("class is loaded");
+	}
+
+	public Test() {
+		this.test1 = new Test1("test");
+		
+	}
+
+	public static void main(String[] args) {
+	}
+
+}
+
+class Test1 {
+	public Test1(String str) {
+		System.out.println("new a test1 in " + str);
 	}
 }
