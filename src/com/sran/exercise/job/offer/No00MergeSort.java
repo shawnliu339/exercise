@@ -7,7 +7,7 @@ public class No00MergeSort {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] nums1 = { 2, 7, 8, 3, 1, 6, 9, 0, 5, 4 };
-		nums1 = new int[] {};
+		//nums1 = new int[] {};
 		// nums1 = new int[]{2,0,0,0,0,2};
 		// nums1 = new int[]{2,1};
 		mergeSort(nums1);
