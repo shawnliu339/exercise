@@ -4,7 +4,7 @@ public class No31GreatestSumOfSubarrays {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] nums = {1,-3, 3, 4, 5, -3};
+		int[] nums = {-1,-3};
 		System.out.println(findGreateSum(nums));
 
 	}
@@ -17,7 +17,7 @@ public class No31GreatestSumOfSubarrays {
 		}
 		
 		int currentSum = 0;
-		int maxSum = 0;
+		int maxSum = -99999;
 		
 		for (int i=0; i<nums.length; i++) {
 			if(currentSum <= 0) {
